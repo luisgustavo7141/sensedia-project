@@ -30,7 +30,7 @@ public class CardObject extends BaseTest {
 		this.idCard = idCard;
 	}
 	
-	//REALIZA CRIA«√O DO CARD
+	//REALIZA CRIA√á√ÉO DO CARD
 	public Response createCard(String name, String desc){
 		
 		HashMap<String,String> requestBody = new HashMap<>();
@@ -47,22 +47,22 @@ public class CardObject extends BaseTest {
 		}
 		
 		response =				
-				given()
-					.header("Content-type", "application/json")
-					.and()
-					.body(jsonResult)
-                .when()
-                	.post(endpoint + "?key=" + CHAVE_API + "&token=" + TOKEN)
-                .then()
-                	.log().all()
-                	.extract().response();	
+			given()
+				.header("Content-type", "application/json")
+				.and()
+				.body(jsonResult)
+                	.when()
+                		.post(endpoint + "?key=" + CHAVE_API + "&token=" + TOKEN)
+                	.then()
+                		.log().all()
+                		.extract().response();	
 		
-			System.out.println("Foi realizado uma criaÁ„o do card: " + response.asString());
+			System.out.println("Foi realizado uma cria√ß√£o do card: " + response.asString());
 			setIdcard(response.jsonPath().getString("id"));
 			return response;
 	}
 	
-	//REALIZA ALTERA«√O DO CARD
+	//REALIZA ALTERA√á√ÉO DO CARD
 	public Response editCard(String name, String desc) {
 		
 		HashMap<String,String> requestBody = new HashMap<>();
@@ -79,10 +79,10 @@ public class CardObject extends BaseTest {
 		}
 			
 		response =	
-				given()
-					.header("Content-type", "application/json")
-						.and()
-						.body(jsonResult)
+			given()
+				.header("Content-type", "application/json")
+				.and()
+				.body(jsonResult)
 	                .when()
 	                	.put(endpoint + "/" + this.getIdcard() + "?key=" + CHAVE_API + "&token=" + TOKEN)
 	                .then()
@@ -93,11 +93,11 @@ public class CardObject extends BaseTest {
 		return response;
 	}
 	
-	//REALIZA REMO«√O DO CARD
+	//REALIZA REMO√á√ÉO DO CARD
 	public Response removeCard() {
 		response =	
-				given()
-					.header("Content-type", "application/json")
+			given()
+				.header("Content-type", "application/json")
 	                .when()
 	                	.delete(endpoint + "/" + this.getIdcard() + "?key=" + CHAVE_API + "&token=" + TOKEN)
 	                .then()
