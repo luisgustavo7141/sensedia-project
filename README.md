@@ -12,7 +12,7 @@ Para elaboração da atividade de automação da API Trello as tecnologias utili
 	> RestAssured
 	> Jackson-Databind para serialização dos arquivos JSON
 	> Junit 5 para realização das validações
- > IDE Eclipse
+	> IDE Eclipse
 	
 **Configuração do ambiente**
 
