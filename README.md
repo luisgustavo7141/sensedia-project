@@ -8,9 +8,9 @@ Para elaboração da atividade de automação da API Trello as tecnologias utili
 
 	> Linguagem de programação Java
 	> Maven para gerenciamento de dependências 
- > BDD (Cucumber + Gherkin)
- > RestAssured
- > Jackson-Databind para serialização dos arquivos JSON
+	> BDD (Cucumber + Gherkin)
+	> RestAssured
+	> Jackson-Databind para serialização dos arquivos JSON
 	> Junit 5 para realização das validações
  > IDE Eclipse
 	
