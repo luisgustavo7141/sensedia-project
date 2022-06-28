@@ -26,8 +26,8 @@ public class BoardObject extends BaseTest {
                 		.log().all()
                 		.extract().response();	
 		
-			System.out.println("Foi realizado uma criação do board: " + response.asString());
-			return response;
+		System.out.println("Foi realizado uma criação do board: " + response.asString());
+		return response;
 	}
 
 	//REALIZA REMOÇÃO DO CARD
@@ -41,8 +41,8 @@ public class BoardObject extends BaseTest {
 	                	.log().all()
 	                	.extract().response();
 		
-	    System.out.println("O board: " + idBoard + " foi removido com sucesso!");		
-	    return response;
+		System.out.println("O board: " + idBoard + " foi removido com sucesso!");		
+		return response;
 	}
 	
 	public String getIdList(String idBoard) {
