@@ -104,8 +104,8 @@ public class CardObject extends BaseTest {
 	                	.log().all()
 	                	.extract().response();
 		
-	    System.out.println("O card: " + this.getIdcard() + " foi removido com sucesso!");		
-	    return response;
+		System.out.println("O card: " + this.getIdcard() + " foi removido com sucesso!");		
+		return response;
 	}
 	
 }
