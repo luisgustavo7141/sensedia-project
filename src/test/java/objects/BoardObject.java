@@ -15,26 +15,26 @@ public class BoardObject extends BaseTest {
 	final String endpoint = "/1/boards";
 	private Response response;
 		
-	//REALIZA CRIA«√O DO CARD
+	//REALIZA CRIA√á√ÉO DO CARD
 	public Response createBoard(String name){
 		response =				
-				given()
-					.header("Content-type", "application/json")
-                .when()
-                	.post(endpoint + "?name=" + name + "&key=" + CHAVE_API + "&token=" + TOKEN)
-                .then()
-                	.log().all()
-                	.extract().response();	
+			given()
+				.header("Content-type", "application/json")
+                	.when()
+                		.post(endpoint + "?name=" + name + "&key=" + CHAVE_API + "&token=" + TOKEN)
+                	.then()
+                		.log().all()
+                		.extract().response();	
 		
-			System.out.println("Foi realizado uma criaÁ„o do board: " + response.asString());
+			System.out.println("Foi realizado uma cria√ß√£o do board: " + response.asString());
 			return response;
 	}
 
-	//REALIZA REMO«√O DO CARD
+	//REALIZA REMO√á√ÉO DO CARD
 	public Response removeBoard(String idBoard) {
 		response =	
-				given()
-					.header("Content-type", "application/json")
+			given()
+				.header("Content-type", "application/json")
 	                .when()
 	                	.delete(endpoint + "/" + idBoard + "?key=" + CHAVE_API + "&token=" + TOKEN)
 	                .then()
@@ -48,13 +48,13 @@ public class BoardObject extends BaseTest {
 	public String getIdList(String idBoard) {
 
 		Response response =				
-				given()
-					.contentType(ContentType.JSON)
-			   .when()
-	               	  .get(endpoint + "/" + idBoard + "/lists?key=" + CHAVE_API + "&token=" + TOKEN)
-			   .then()
-	              	.log().all()
-	              	.extract().response();
+			given()
+				.contentType(ContentType.JSON)
+		        .when()
+	             	        .get(endpoint + "/" + idBoard + "/lists?key=" + CHAVE_API + "&token=" + TOKEN)
+			.then()
+	              		.log().all()
+	              		.extract().response();
 		return response.jsonPath().getString("[0].id");
 
 	}
