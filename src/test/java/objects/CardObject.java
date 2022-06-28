@@ -30,13 +30,13 @@ public class CardObject extends BaseTest {
 		this.idCard = idCard;
 	}
 	
-	//REALIZA CRIA√á√ÉO DO CARD
-	public Response createCard(String name, String desc){
+	//REALIZA CRIA«√O DO CARD
+	public Response createCard(String name, String desc, String idList){
 		
 		HashMap<String,String> requestBody = new HashMap<>();
 		requestBody.put("name", name);
 		requestBody.put("desc", desc);
-		requestBody.put("idList", ID_LIST);
+		requestBody.put("idList", idList);
 
 		ObjectMapper mapper = new ObjectMapper();
 		try {
@@ -47,28 +47,28 @@ public class CardObject extends BaseTest {
 		}
 		
 		response =				
-			given()
-				.header("Content-type", "application/json")
-				.and()
-				.body(jsonResult)
-                	.when()
-                		.post(endpoint + "?key=" + CHAVE_API + "&token=" + TOKEN)
-                	.then()
-                		.log().all()
-                		.extract().response();	
+				given()
+					.header("Content-type", "application/json")
+					.and()
+					.body(jsonResult)
+                .when()
+                	.post(endpoint + "?key=" + CHAVE_API + "&token=" + TOKEN)
+                .then()
+                	.log().all()
+                	.extract().response();	
 		
-			System.out.println("Foi realizado uma cria√ß√£o do card: " + response.asString());
+			System.out.println("Foi realizado uma criaÁ„o do card: " + response.asString());
 			setIdcard(response.jsonPath().getString("id"));
 			return response;
 	}
 	
-	//REALIZA ALTERA√á√ÉO DO CARD
-	public Response editCard(String name, String desc) {
+	//REALIZA ALTERA«√O DO CARD
+	public Response editCard(String name, String desc, String idList) {
 		
 		HashMap<String,String> requestBody = new HashMap<>();
 		requestBody.put("name", name);
 		requestBody.put("desc", desc);
-		requestBody.put("idList", ID_LIST);
+		requestBody.put("idList", idList);
 
 		ObjectMapper mapper = new ObjectMapper();
 		try {
@@ -79,10 +79,10 @@ public class CardObject extends BaseTest {
 		}
 			
 		response =	
-			given()
-				.header("Content-type", "application/json")
-				.and()
-				.body(jsonResult)
+				given()
+					.header("Content-type", "application/json")
+						.and()
+						.body(jsonResult)
 	                .when()
 	                	.put(endpoint + "/" + this.getIdcard() + "?key=" + CHAVE_API + "&token=" + TOKEN)
 	                .then()
@@ -93,11 +93,11 @@ public class CardObject extends BaseTest {
 		return response;
 	}
 	
-	//REALIZA REMO√á√ÉO DO CARD
+	//REALIZA REMO«√O DO CARD
 	public Response removeCard() {
 		response =	
-			given()
-				.header("Content-type", "application/json")
+				given()
+					.header("Content-type", "application/json")
 	                .when()
 	                	.delete(endpoint + "/" + this.getIdcard() + "?key=" + CHAVE_API + "&token=" + TOKEN)
 	                .then()
